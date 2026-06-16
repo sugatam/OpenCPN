@@ -370,6 +370,9 @@ void glChartCanvas::Init() {
 #if defined(__WXOSX__) || defined(__WXGTK3__)
   // Support scaled HDPI displays.
   m_displayScale = GetContentScaleFactor();
+#elif defined(__ANDROID__)
+  // Support high-DPI Android displays for crisp chart rendering.
+  m_displayScale = getAndroidDisplayDensity();
 #endif
   m_pParentCanvas->VPoint.SetPixelScale(m_displayScale);
 
@@ -3822,6 +3825,8 @@ void glChartCanvas::Render() {
 #ifdef __WXOSX__
   // Support scaled HDPI displays.
   m_displayScale = GetContentScaleFactor();
+#elif defined(__ANDROID__)
+  m_displayScale = getAndroidDisplayDensity();
 #endif
   m_pParentCanvas->VPoint.SetPixelScale(m_displayScale);
 

@@ -51,6 +51,16 @@ public:
 
   bool m_GLPolygonSmoothing;
   bool m_GLLineSmoothing;
+
+  /**
+   * Controls texture filtering mode for raster chart rendering.
+   *
+   * When true, uses GL_LINEAR (bilinear) filtering for smooth chart display
+   * on high-DPI screens. When false, uses GL_NEAREST for pixel-perfect
+   * rendering (faster but blocky on scaled displays).
+   * Default: true on Android, false elsewhere (preserving legacy behavior).
+   */
+  bool m_bTextureBilinearFiltering;
 };
 
 extern ocpnGLOptions g_GLOptions;  // global instance

@@ -196,6 +196,7 @@ int MyConfig::LoadMyConfig() {
   g_GLOptions.m_bUseAcceleratedPanning = true;
   g_GLOptions.m_GLPolygonSmoothing = true;
   g_GLOptions.m_GLLineSmoothing = true;
+  g_GLOptions.m_bTextureBilinearFiltering = true;
   g_GLOptions.m_iTextureDimension = 512;
   g_GLOptions.m_iTextureMemorySize = 128;
   if (!g_bGLexpert) {
